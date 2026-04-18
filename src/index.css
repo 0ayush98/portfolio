@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Cloud Enterprise - Calming & Premium */
+    --background: #f8fafc; /* Very soft slate-grey/blue */
+    --foreground: #0f172a; /* Slate 900 */
+    --primary: #2563eb; 
+    --primary-glow: rgba(37, 99, 235, 0.1);
+    --secondary: #4f46e5;
+    --accent: #10b981;
+    --card: #ffffff;
+    --card-foreground: #0f172a;
+    --muted: #f1f5f9;
+    --muted-foreground: #64748b;
+    --border: #e2e8f0;
+    --grid: rgba(37, 99, 235, 0.03);
+  }
+
+  .dark {
+    /* Cloud Midnight - Deep & Comfortable */
+    --background: #020617; /* Slate 950 */
+    --foreground: #f1f5f9;
+    --primary: #60a5fa;
+    --primary-glow: rgba(96, 165, 250, 0.05);
+    --secondary: #818cf8;
+    --accent: #34d399;
+    --card: #0f172a; /* Slate 900 */
+    --card-foreground: #f1f5f9;
+    --muted: #1e293b;
+    --muted-foreground: #94a3b8;
+    --border: #1e293b;
+    --grid: rgba(96, 165, 250, 0.04);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Utilities for Premium effects */
+.glass {
+  background: color-mix(in srgb, var(--card) 70%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.dark .glass {
+  background: rgba(19, 27, 47, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to right, #38bdf8, #818cf8, #c084fc);
+}
+
+.bg-mesh {
+  background-color: var(--background);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(129, 140, 248, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(192, 132, 252, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(52, 211, 153, 0.1) 0px, transparent 50%);
+}
+
+.glass-premium {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.neo-glow {
+  box-shadow: 0 0 20px var(--primary-glow);
+}
+
+.bg-grid-white {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.bg-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+}
+
+.terminal-header {
+  background: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 12px;
+  display: flex;
+  gap: 6px;
+  border-radius: 8px 8px 0 0;
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.pipeline-connector {
+  position: absolute;
+  background: linear-gradient(to bottom, var(--primary) 0%, transparent 100%);
+  width: 2px;
+  opacity: 0.2;
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
